@@ -36,7 +36,7 @@ CUSTOMER_SUPPORT_USED=y
 #PLATFORM_INGENICT41				25
 #PLATFORM_SUN50IWP1						26
 #PLATFORM_KALI                                  27
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 platform ?=PLATFORM_INGENICT41
 #Android
 #Linux
@@ -82,7 +82,7 @@ else
 KERDIR:=/wifi_prj/wuping/project/linux/iTop4412_Kernel_3.0/
 CROSS_COMPILE:=/usr/local/arm/arm-2009q3/bin/arm-none-linux-gnueabi-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=10
 arch = arm64
 endif
@@ -96,7 +96,7 @@ else
 KERDIR:=/wifi_prj/wuping/project/linux/iTop4412_Kernel_3.0/
 CROSS_COMPILE:=/usr/local/arm/arm-2009q3/bin/arm-none-linux-gnueabi-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=10
 endif
 ifeq ($(platform),PLATFORM_HIS_LINUX_3_4)
@@ -114,7 +114,7 @@ else
 KERDIR:=/wifi_prj/wuping/project/linux/iTop4412_Kernel_3.0/
 CROSS_COMPILE:=/usr/local/arm/arm-2009q3/bin/arm-none-linux-gnueabi-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 arch = arm
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=11
 endif
@@ -128,7 +128,7 @@ else
 #KERDIR:=/wifi_prj/wuping/project/linux/iTop4412_Kernel_3.0/
 #CROSS_COMPILE:=/usr/local/arm/arm-2009q3/bin/arm-none-linux-gnueabi-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 arch = arm
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=18
 endif
@@ -143,7 +143,7 @@ else
 KERDIR:=/wifi_prj/wuping/project/linux/iTop4412_Kernel_3.0/
 CROSS_COMPILE:=/usr/local/arm/arm-2009q3/bin/arm-none-linux-gnueabi-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 arch = arm64
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=10 
 endif
@@ -165,7 +165,7 @@ CROSS_COMPILE:=/usr/local/arm/arm-2009q3/bin/arm-none-linux-gnueabi-
 #CROSS_COMPILE:=/wifi_prj/staff/jilechang/XUNWEI/arm-2009q3/bin/arm-none-linux-gnueabi-
 
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=1
 endif
 ifeq ($(platform),PLATFORM_XUNWEI_2G)
@@ -182,7 +182,7 @@ KERDIR:=/wifi_prj/staff/jilechang/XUNWEI/iTop4412_Kernel_3.0/
 CROSS_COMPILE:=/wifi_prj/staff/jilechang/XUNWEI/arm-2009q3/bin/arm-none-linux-gnueabi-
 
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=20
 endif
 
@@ -199,7 +199,7 @@ else
 KERDIR:=/wifi_prj/staff/songningning/lichee_sun6i/linux-3.3/
 CROSS_COMPILE:=/wifi_prj/staff/zhouzhanchao/Linux_sun6i/lichee/buildroot/output/external-toolchain/bin/arm-linux-gnueabi-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=2
 endif
 
@@ -213,7 +213,7 @@ ifeq ($(platform),PLATFORM_HUALAI)
 KERDIR:=/wifi_prj/staff/muqing/hualai/kernel-4.4.94/
 #CROSS_COMPILE:=/wifi_prj/staff/muqing/hualai/mips-gcc720-glibc229-r5.1.4/bin/mips-linux-gnu-
 CROSS_COMPILE:=/wifi_prj/staff/muqing/hualai/mips-gcc720-uclibc0.9.33.2-r5.1.4/bin/mips-linux-uclibc-
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=30
 endif
 
@@ -229,7 +229,7 @@ KERDIR:=/wifi_prj/staff/panxuqiang/64bi_driver/cqa64_linux_qt5.3.2/lichee/linux-
 CROSS_COMPILE:=/wifi_prj/staff/panxuqiang/64bi_driver/cqa64_linux_qt5.3.2/lichee/brandy/armv8_toolchain/gcc-linaro-aarch64-linux-gnu-4.9-2014.09_linux/bin/aarch64-linux-gnu-
 endif
 arch:=arm64
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=4
 endif
 
@@ -243,13 +243,13 @@ CROSS_COMPILE:=/opt/hisi-linux/x86-arm/arm-hisiv200-linux/target/bin/arm-hisiv20
 else
 #KERDIR:=/wifi_prj/staff/panxuqiang/64bi_driver/cqa64_linux_qt5.3.2/lichee/linux-3.10/
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=5
 endif
 
 ifeq ($(platform),PLATFORM_PCX86)
 KERDIR:=/kernel/linux-lts-utopic-3.16.0/
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=7
 arch:=x86
 MAKEFILE_SUB = Makefile.build.local
@@ -262,7 +262,7 @@ CROSS_COMPILE:=/ssd-home/mengxuehong/buildTool1/gcc-linaro-aarch64-linux-gnu-4.9
 else
 #KERDIR:=/wifi_prj/staff/panxuqiang/64bi_driver/cqa64_linux_qt5.3.2/lichee/linux-3.10/
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=8
 arch:=arm64
 endif
@@ -275,7 +275,7 @@ CROSS_COMPILE:=/wifi_prj/staff/zhouzhanchao/s805_env/opt/gcc-linaro-arm-linux-gn
 else
 #KERDIR:=/wifi_prj/staff/panxuqiang/64bi_driver/cqa64_linux_qt5.3.2/lichee/linux-3.10/
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=8
 arch:=arm
 endif
@@ -288,7 +288,7 @@ CROSS_COMPILE:=/wifi_prj/staff/mengxuehong/mengxuehong/amlogic_sdk/buildTool/gcc
 else
 #KERDIR:=/wifi_prj/staff/panxuqiang/64bi_driver/cqa64_linux_qt5.3.2/lichee/linux-3.10/
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=9
 arch:=arm64
 endif
@@ -296,7 +296,7 @@ endif
 ifeq ($(platform),PLATFORM_HI3516EV200)
 KERDIR:=/wifi_prj/staff/panxuqiang/wifi_prj/Hi3516EV200_SDK_V1.0.0.2/osdrv/opensource/kernel/linux-4.9.y
 CROSS_COMPILE:=/opt/hisi-linux/x86-arm/arm-himix100-linux/bin/arm-himix100-linux-
-export 
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 arch = arm
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=19
 #ATBM_WIFI__EXT_CCFLAGS += -mcpu=cortex-a7 -mfloat-abi=softfp -mfpu=neon-vfpv4 -fno-aggressive-loop-optimizations
@@ -320,7 +320,7 @@ else
 KERDIR:=/wifi_prj/staff/songningning/lichee/linux-3.4/
 CROSS_COMPILE:=/wifi_prj/staff/songningning/lichee/out/sun8iw5p1/linux/common/buildroot/external-toolchain/bin/arm-linux-gnueabi-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=23
 endif
 
@@ -337,13 +337,13 @@ else
 KERDIR:=/wifi_prj/staff/songningning/cqa64_ubuntu18_64bit_bv3s/linux-3.10
 CROSS_COMPILE:=/wifi_prj/staff/songningning/cqa64_ubuntu18_64bit_bv3s/out/sun50iw1p1/ubuntu18/common/buildroot/external-toolchain/bin/aarch64-linux-gnu-
 endif
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=26
 endif
 
 ifeq ($(platform),PLATFORM_CDLINUX)
 KERDIR:=/lib/modules/3.2.11_cdl0/build
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=11
 endif
 
@@ -399,62 +399,62 @@ endif
 
 else
 ifeq ($(platform),PLATFORM_XUNWEI)
-export 
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=1
 endif
 ifeq ($(platform),PLATFORM_SUN6I)
-export 
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=2
 endif
 ifeq ($(platform),PLATFORM_SUN6I_64)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=4
 endif
 ifeq ($(platform),PLATFORM_HI3798M)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=5
 endif
 ifeq ($(platform),PLATFORM_AMLOGIC)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=8
 endif
 ifeq ($(platform),PLATFORM_AMLOGICi_905X)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=9
 endif
 ifeq ($(platform),PLATFORM_ROCKCHIP)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=10
 endif
 ifeq ($(platform),PLATFORM_MSTAR)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=11
 endif
 ifeq ($(platform),PLATFORM_CDLINUX)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=12
 endif
 ifeq ($(platform),PLATFORM_AMLOGIC_S805)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=13
 endif
 ifeq ($(platform),PLATFORM_ROCKCHIP_3229)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=10
 endif
 ifeq ($(platform),PLATFORM_NVT98517)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS = -DATBM_WIFI_PLATFORM=14
 endif
 ifeq ($(platform),PLATFORM_INGENICT31)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS ?= -DATBM_WIFI_PLATFORM=22
 endif
 ifeq ($(platform),PLATFORM_INGENICT41)
-export
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 ATBM_WIFI__EXT_CCFLAGS ?= -DATBM_WIFI_PLATFORM=23
 endif
-export 
+#export # export-all breaks kbuild sub-make parsing with GNU make >= 4.4
 include $(src)/Makefile.build.kernel
 endif
 

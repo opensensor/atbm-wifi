@@ -23,7 +23,7 @@ ieee80211_get_channel_khz(struct wiphy *wiphy, u32 freq_khz)
 }
 EXPORT_SYMBOL(ieee80211_get_channel_khz);
 
-int ieee80211_channel_to_freq_khz(int chan, enum nl80211_band band)
+u32 ieee80211_channel_to_freq_khz(int chan, enum nl80211_band band)
 {
 	return ieee80211_channel_to_frequency(chan, band) * 1000;
 }
@@ -35,10 +35,10 @@ int ieee80211_freq_khz_to_channel(u32 freq_khz)
 }
 EXPORT_SYMBOL(ieee80211_freq_khz_to_channel);
 
-int cfg80211_rx_mgmt_khz(struct wireless_dev *wdev, int freq_khz, int sig_dbm,
-			 const u8 *buf, size_t len, u32 flags)
+bool cfg80211_rx_mgmt_khz(struct wireless_dev *wdev, int freq_khz, int sig_dbm,
+			  const u8 *buf, size_t len, u32 flags)
 {
-	return cfg80211_rx_mgmt(wdev, freq_khz / 1000, sig_dbm, buf, len, flags) ? 0 : -EINVAL;
+	return cfg80211_rx_mgmt(wdev, freq_khz / 1000, sig_dbm, buf, len, flags);
 }
 EXPORT_SYMBOL(cfg80211_rx_mgmt_khz);
 
@@ -52,7 +52,7 @@ EXPORT_SYMBOL(cfg80211_report_obss_beacon_khz);
 
 int ieee80211_data_to_8023_exthdr(struct sk_buff *skb, struct ethhdr *ehdr,
 				  const u8 *addr, enum nl80211_iftype iftype,
-				  u8 data_offset)
+				  u8 data_offset, bool is_amsdu)
 {
 	/* Older kernel doesn't support data_offset, just call regular version */
 	return ieee80211_data_to_8023(skb, addr, iftype);
@@ -108,15 +108,16 @@ int cfg80211_bss_color_notify(struct net_device *dev, gfp_t gfp,
 }
 EXPORT_SYMBOL(cfg80211_bss_color_notify);
 
-void cfg80211_merge_profile(const u8 *ie, size_t ielen,
-			     const struct element *mbssid_elem,
-			     const struct element *sub_elem,
-			     u8 *merged_ie, size_t *merged_len)
+size_t cfg80211_merge_profile(const u8 *ie, size_t ielen,
+			      const struct element *mbssid_elem,
+			      const struct element *sub_elem,
+			      u8 *merged_ie, size_t max_copy_len)
 {
-	/* Not supported in kernel 4.4, just copy original IE */
-	if (merged_ie && merged_len) {
-		memcpy(merged_ie, ie, ielen);
-		*merged_len = ielen;
-	}
+	/* Not supported in kernel 4.4, just copy the original IEs */
+	size_t copy_len = min(ielen, max_copy_len);
+
+	if (merged_ie)
+		memcpy(merged_ie, ie, copy_len);
+	return copy_len;
 }
 EXPORT_SYMBOL(cfg80211_merge_profile);
